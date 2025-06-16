@@ -1,6 +1,17 @@
-# Playwright Advanced Testing: Hacker News Sorting
+# Playwright : Hacker News Sorting Test
 
-This project demonstrates advanced end-to-end testing using [Playwright](https://playwright.dev/) for the [Hacker News "newest" page](https://news.ycombinator.com/newest). It validates that the first 100 articles are sorted from newest to oldest by timestamp, using robust automation and best practices.
+---
+
+## About This Assignment
+
+This project was completed as part of a take-home assignment for the [QA Engineer role at QA Wolf](https://www.task-wolf.com/apply-qae). The assignment required building an automated Playwright test in JavaScript to demonstrate technical skills in web automation, debugging, and best practices. The goal was to validate the sorting of articles on Hacker News, reflecting real-world QA tasks such as:
+
+- Creating and maintaining Playwright tests
+- Debugging with browser tools
+- Communicating results clearly
+- Delivering reliable, maintainable automation
+
+For more details on the role and assignment, see the [QA Wolf job description](https://www.task-wolf.com/apply-qae).
 
 ---
 
@@ -67,6 +78,12 @@ After running tests, view the HTML report:
 ```bash
 npx playwright show-report
 ```
+
+---
+
+## Test Reports
+
+The test-result-png folder contains screenshot of the current test result that have passed. This image provide a visual reference of the report and can be useful for documentation or sharing test outcome.
 
 ---
 
