@@ -1,55 +1,58 @@
-# **Hacker News Sorting Test with Playwright**
+# Playwright Advanced Testing: Hacker News Sorting
 
-This project uses **[Playwright](https://playwright.dev/)** to test whether the **first 100 articles** on the [Hacker News "newest"](https://news.ycombinator.com/newest) page are sorted from **newest to oldest** by timestamp.
-
----
-
-## **What Does It Test?**
-
-* Navigates through Hacker News pagination
-* Collects the **first 100 unique articles**
-* Verifies that articles are sorted in **descending order** by their published timestamp
+This project demonstrates advanced end-to-end testing using [Playwright](https://playwright.dev/) for the [Hacker News "newest" page](https://news.ycombinator.com/newest). It validates that the first 100 articles are sorted from newest to oldest by timestamp, using robust automation and best practices.
 
 ---
 
-## **Technologies**
+## Features
 
-* **Playwright**
-* **JavaScript (Node.js)**
-* **Modern Web Automation Practices**
+- **Automated Pagination:** Navigates through multiple pages to collect the first 100 unique articles.
+- **Sorting Validation:** Ensures articles are sorted in descending order by published timestamp.
+- **Page Object Model:** Encapsulates page logic in a reusable `HackerNewsPage` class.
+- **Modern Playwright Setup:**
+  - Parallel test execution
+  - HTML reporting
+  - CI integration via GitHub Actions
+- **Linting:** Enforced code quality with ESLint.
 
 ---
 
-## **Setup**
+## Project Structure
 
-### 1. **Clone the Repository**
+- `pages/HackerNewsPage.js` — Page object for scraping and paginating Hacker News.
+- `tests/hacker-news-sorting.spec.js` — Main Playwright test for sorting validation.
+- `playwright.config.js` — Playwright configuration (parallelism, retries, reporting, etc).
+- `eslint.config.mjs` — ESLint configuration for code quality.
+- `.github/workflows/playwright.yml` — GitHub Actions workflow for CI.
+
+---
+
+## Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/LakinduQA/hackernews-playwright-test.git
-cd hackernews-playwright-test
+git clone <your-repo-url>
+cd <project-folder>
 ```
 
-### 2. **Install Dependencies**
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. **Install Playwright**
-
-```bash
-npm init playwright@latest
-```
-
 ---
 
-## **Run the Test**
+## Running Tests
+
+Run all tests (headless by default):
 
 ```bash
 npx playwright test
 ```
 
-To run in **headed mode** (browser visible):
+Run in headed mode (browser visible):
 
 ```bash
 npx playwright test --headed --project=chromium
@@ -57,7 +60,9 @@ npx playwright test --headed --project=chromium
 
 ---
 
-## **View Test Report**
+## Viewing Reports
+
+After running tests, view the HTML report:
 
 ```bash
 npx playwright show-report
@@ -65,20 +70,28 @@ npx playwright show-report
 
 ---
 
-## ⚠️ **Note on Live Data & Test Flakiness**
+## Linting
 
-Hacker News is a **live website** with constantly updating, user-submitted content. This means the test may occasionally **fail** due to:
+Check and auto-fix code style issues:
 
-* Articles being **added or removed** during the test run
-* Pagination or data not loading completely
-* Temporary site hiccups
+```bash
+npm run lint
+```
 
-If this happens, simply **re-run the test**.
-For more reliability, you can also use Playwright’s retry option:
+---
+
+
+## Notes on Live Data & Flakiness
+
+Hacker News is a live site with constantly changing content. Test failures may occur if articles are added/removed during a run, or due to network/pagination issues. If a test fails, simply re-run it. For more reliability, use Playwright's retry option:
 
 ```bash
 npx playwright test --retries=2
 ```
 
 ---
+
+## License
+
+MIT
 
